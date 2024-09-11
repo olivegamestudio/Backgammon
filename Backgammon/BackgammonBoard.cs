@@ -4,6 +4,35 @@ public class BackgammonBoard
 {
     readonly List<BackgammonPoint> _points = new();
 
+    public PieceColor Winner
+    {
+        get
+        {
+            bool whitePlaying = false;
+            bool blackPlaying = false;
+
+            foreach (BackgammonPoint point in _points)
+            {
+                if (point.Color == PieceColor.White)
+                {
+                    whitePlaying = true;
+                }
+                if (point.Color == PieceColor.Black)
+                {
+                    blackPlaying = true;
+                }
+            }
+
+            if (whitePlaying && !blackPlaying)
+                return PieceColor.Black;
+
+            if (!whitePlaying && blackPlaying)
+                return PieceColor.White;
+
+            return PieceColor.None;
+        }
+    }
+
     public async Task CreateGameBoard()
     {
         await AddPiece(PieceColor.White, 24, 2);

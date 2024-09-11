@@ -48,5 +48,7 @@ public class GameTests
                 color = PieceColor.White;
             }
         }
+
+        Console.WriteLine("The winner is: " + board.Winner);
     }
 }

@@ -87,6 +87,14 @@ public class BackgammonBoard
                 }
 
                 await RemovePiece(p);
+
+                if (GetPoint(point + numPoints).Color == PieceColor.White &&
+                    GetPoint(point + numPoints).Count == 1)
+                {
+                    await RemovePiece(GetPoint(point + numPoints));
+                    await AddPiece(PieceColor.White, 25);
+                }
+
                 await AddPiece(PieceColor.Black, point + numPoints);
                 return true;
             }

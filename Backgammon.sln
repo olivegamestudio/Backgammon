@@ -5,7 +5,9 @@ VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backgammon", "Backgammon\Backgammon.csproj", "{390C400E-EEB6-4D61-B579-F5ED082EC444}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backgammon.Tests", "Backgammon.Tests\Backgammon.Tests.csproj", "{5BA9525A-7197-4862-993A-6FE1028AAE0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backgammon.Tests", "Backgammon.Tests\Backgammon.Tests.csproj", "{5BA9525A-7197-4862-993A-6FE1028AAE0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backgammon.Wpf", "Backgammon.Wpf\Backgammon.Wpf.csproj", "{6F731477-AC6F-416F-88C1-A856F92F0F85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5BA9525A-7197-4862-993A-6FE1028AAE0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BA9525A-7197-4862-993A-6FE1028AAE0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BA9525A-7197-4862-993A-6FE1028AAE0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F731477-AC6F-416F-88C1-A856F92F0F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F731477-AC6F-416F-88C1-A856F92F0F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F731477-AC6F-416F-88C1-A856F92F0F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F731477-AC6F-416F-88C1-A856F92F0F85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,6 +7,44 @@ public class BackgammonBoard
     public const int WhiteBar = 25;
     public const int BlackBar = 0;
 
+    public IEnumerable<BackgammonPoint> Points => _points;
+
+    public int WhitePoints
+    {
+        get
+        {
+            int score = 0;
+
+            foreach (BackgammonPoint p in _points)
+            {
+                if (p.Color == PieceColor.White)
+                {
+                    score += p.Point * p.Count;
+                }
+            }
+
+            return score;
+        }
+    }
+
+    public int BlackPoints
+    {
+        get
+        {
+            int score = 0;
+
+            foreach (BackgammonPoint p in _points)
+            {
+                if (p.Color == PieceColor.Black)
+                {
+                    score += (25-p.Point) * p.Count;
+                }
+            }
+
+            return score;
+        }
+    }
+
     public PieceColor Winner
     {
         get

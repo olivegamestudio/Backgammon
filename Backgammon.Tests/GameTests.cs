@@ -12,7 +12,6 @@ public class GameTests
         BackgammonPlayer blackPlayer = new() { Color = PieceColor.Black };
 
         Dice dice = new();
-        PieceColor color = PieceColor.White;
 
         while (board.IsRunning)
         {
@@ -30,5 +29,7 @@ public class GameTests
         }
 
         Console.WriteLine("The winner is: " + board.Winner);
+        Console.WriteLine("White Score: " + board.WhitePoints);
+        Console.WriteLine("Black Score: " + board.BlackPoints);
     }
 }

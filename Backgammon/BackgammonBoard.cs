@@ -26,24 +26,39 @@ public class BackgammonBoard
         return Task.CompletedTask;
     }
 
-    public async Task MovePiece(int point)
+    public async Task<bool> MovePiece(int point, int numPoints)
     {
         BackgammonPoint p = GetPoint(point);
         switch (p.Color)
         {
             case PieceColor.White:
             {
+                if (GetPoint(point - numPoints).Color == PieceColor.Black &&
+                    GetPoint(point - numPoints).Count >= 2)
+                {
+                    return false;
+                }
+
                 await RemovePiece(p);
-                await AddPiece(PieceColor.White, point - 1);
-                break;
+                await AddPiece(PieceColor.White, point - numPoints);
+                return true;
             }
+
             case PieceColor.Black:
             {
+                if (GetPoint(point + numPoints).Color == PieceColor.White &&
+                    GetPoint(point + numPoints).Count >= 2)
+                {
+                    return false;
+                }
+
                 await RemovePiece(p);
-                await AddPiece(PieceColor.Black, point + 1);
-                break;
+                await AddPiece(PieceColor.Black, point + numPoints);
+                return true;
             }
         }
+
+        return false;
     }
 
     public BackgammonPoint GetPoint(int point)

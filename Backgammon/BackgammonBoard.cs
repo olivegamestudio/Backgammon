@@ -4,13 +4,27 @@ public class BackgammonBoard
 {
     readonly List<BackgammonPoint> _points = new();
 
+    public async Task CreateGameBoard()
+    {
+        await AddPiece(PieceColor.White, 24, 2);
+        await AddPiece(PieceColor.Black, 19, 5);
+        await AddPiece(PieceColor.Black, 17, 3);
+        await AddPiece(PieceColor.White, 13, 5);
+        await AddPiece(PieceColor.Black, 12, 5);
+        await AddPiece(PieceColor.White, 8, 3);
+        await AddPiece(PieceColor.White, 6, 5);
+        await AddPiece(PieceColor.Black, 1, 2);
+    }
+
+    public bool IsRunning => _points.Any(it => it.Color == PieceColor.White) && _points.Any(it => it.Color == PieceColor.Black);
+
     bool Exists(int point) => _points.Any(it => it.Point == point);
     
-    public Task AddPiece(PieceColor pieceColor, int point)
+    public Task AddPiece(PieceColor pieceColor, int point, int numPieces = 1)
     {
         BackgammonPoint p = GetPoint(point);
         p.Color = pieceColor;
-        p.Count++;
+        p.Count+=numPieces;
         return Task.CompletedTask;
     }
 
@@ -26,7 +40,7 @@ public class BackgammonBoard
         return Task.CompletedTask;
     }
 
-    bool CanMove(PieceColor color, int point)
+    public bool CanMove(PieceColor color, int point)
     {
         switch (color)
         {

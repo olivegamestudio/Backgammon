@@ -1,6 +1,6 @@
 namespace Backgammon.Tests;
 
-public class Tests
+public class BasicTests
 {
     [Test]
     [TestCase(24, 1)]

@@ -19,9 +19,36 @@ public class BackgammonBoard
     public bool IsRunning => _points.Any(it => it.Color == PieceColor.White) && _points.Any(it => it.Color == PieceColor.Black);
 
     bool Exists(int point) => _points.Any(it => it.Point == point);
-    
+
+    bool ArePiecesInHome(PieceColor pieceColor)
+    {
+        foreach (BackgammonPoint point in _points)
+        {
+            switch (pieceColor)
+            {
+                case PieceColor.White when point.Color == pieceColor && point.Point < 19:
+                case PieceColor.Black when point.Color == pieceColor && point.Point > 6:
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
     public Task AddPiece(PieceColor pieceColor, int point, int numPieces = 1)
     {
+        if (pieceColor == PieceColor.White && point < 1)
+        {
+            // piece removed from board.
+            return Task.CompletedTask;
+        }
+
+        if (pieceColor == PieceColor.Black && point > 24)
+        {
+            // piece removed from board.
+            return Task.CompletedTask;
+        }
+
         BackgammonPoint p = GetPoint(point);
         p.Color = pieceColor;
         p.Count+=numPieces;
@@ -46,6 +73,11 @@ public class BackgammonBoard
         {
             case PieceColor.White:
             {
+                if (point < 1 && ArePiecesInHome(PieceColor.White))
+                {
+                    return true;
+                }
+
                 if (GetPoint(point).Color == PieceColor.Black && GetPoint(point).Count >= 2)
                 {
                     return false;
@@ -56,6 +88,11 @@ public class BackgammonBoard
             }
             case PieceColor.Black:
             {
+                if (point > 24 && ArePiecesInHome(PieceColor.Black))
+                {
+                    return true;
+                }
+
                 if (GetPoint(point).Color == PieceColor.White && GetPoint(point).Count >= 2)
                 {
                     return false;

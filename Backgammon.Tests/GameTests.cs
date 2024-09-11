@@ -8,45 +8,25 @@ public class GameTests
         BackgammonBoard board = new();
         await board.CreateGameBoard();
 
-        Random dice = new();
+        BackgammonPlayer whitePlayer = new() { Color = PieceColor.White };
+        BackgammonPlayer blackPlayer = new() { Color = PieceColor.Black };
+
+        Dice dice = new();
         PieceColor color = PieceColor.White;
 
         while (board.IsRunning)
         {
-            int die = dice.Next(1, 7);
-
-            if (color == PieceColor.White)
+            List<int> d = dice.GetDice(2, true);
+            foreach (int die in d)
             {
-                for (int i = 24; i > 0; i--)
-                {
-                    if (board.GetPoint(i).Color == PieceColor.White)
-                    {
-                        if (board.CanMove(color, i))
-                        {
-                            await board.MovePiece(i, die);
-                            break;
-                        }
-                    }
-                }
-
-                color = PieceColor.Black;
+                await whitePlayer.TakeTurn(board, die);
             }
-            else
+
+            d = dice.GetDice(2, true);
+            foreach(int die in d)
             {
-                for (int i = 1; i < 25; i++)
-                {
-                    if (board.GetPoint(i).Color == PieceColor.Black)
-                    {
-                        if (board.CanMove(color, i))
-                        {
-                            await board.MovePiece(i, die);
-                            break;
-                        }
-                    }
-                }
-
-                color = PieceColor.White;
-            }
+                await blackPlayer.TakeTurn(board, die);
+            } 
         }
 
         Console.WriteLine("The winner is: " + board.Winner);

@@ -4,6 +4,9 @@ public class BackgammonBoard
 {
     readonly List<BackgammonPoint> _points = new();
 
+    public const int WhiteBar = 25;
+    public const int BlackBar = 0;
+
     public PieceColor Winner
     {
         get
@@ -152,7 +155,7 @@ public class BackgammonBoard
                    GetPoint(point - numPoints).Count == 1)
                 {
                     await RemovePiece(GetPoint(point - numPoints));
-                    await AddPiece(PieceColor.Black, 0);
+                    await AddPiece(PieceColor.Black, BlackBar);
                 }
 
                 await AddPiece(PieceColor.White, point - numPoints);
@@ -172,7 +175,7 @@ public class BackgammonBoard
                     GetPoint(point + numPoints).Count == 1)
                 {
                     await RemovePiece(GetPoint(point + numPoints));
-                    await AddPiece(PieceColor.White, 25);
+                    await AddPiece(PieceColor.White, WhiteBar);
                 }
 
                 await AddPiece(PieceColor.Black, point + numPoints);

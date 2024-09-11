@@ -10,13 +10,13 @@ public class Tests
         await board.AddPiece(PieceColor.White, 24);
         bool result = await board.MovePiece(24, 1);
 
-        Assert.IsTrue(result);
+        Assert.That(result, Is.EqualTo(true));
 
-        Assert.IsTrue(board.GetPoint(24).Count == 0);
-        Assert.IsTrue(board.GetPoint(24).Color == PieceColor.None);
+        Assert.That(board.GetPoint(24).Count, Is.EqualTo(0));
+        Assert.That(board.GetPoint(24).Color, Is.EqualTo(PieceColor.None));
 
-        Assert.IsTrue(board.GetPoint(23).Count == 1);
-        Assert.IsTrue(board.GetPoint(23).Color == PieceColor.White);
+        Assert.That(board.GetPoint(23).Count, Is.EqualTo(1));
+        Assert.That(board.GetPoint(23).Color, Is.EqualTo(PieceColor.White));
     }
 
     [Test]
@@ -27,13 +27,13 @@ public class Tests
         await board.AddPiece(PieceColor.Black, 1);
         bool result = await board.MovePiece(1, 1);
 
-        Assert.IsTrue(result);
+        Assert.That(result, Is.EqualTo(true));
 
-        Assert.IsTrue(board.GetPoint(1).Count == 0);
-        Assert.IsTrue(board.GetPoint(1).Color == PieceColor.None);
+        Assert.That(board.GetPoint(1).Count, Is.EqualTo(0));
+        Assert.That(board.GetPoint(1).Color, Is.EqualTo(PieceColor.None));
 
-        Assert.IsTrue(board.GetPoint(2).Count == 1);
-        Assert.IsTrue(board.GetPoint(2).Color == PieceColor.Black);
+        Assert.That(board.GetPoint(2).Count, Is.EqualTo(1));
+        Assert.That(board.GetPoint(2).Color, Is.EqualTo(PieceColor.Black));
     }
 
     [Test]
@@ -46,13 +46,13 @@ public class Tests
         await board.AddPiece(PieceColor.Black, 23);
         bool result = await board.MovePiece(24, 1);
 
-        Assert.IsFalse(result);
+        Assert.That(result, Is.EqualTo(false));
 
-        Assert.IsTrue(board.GetPoint(24).Count == 1);
-        Assert.IsTrue(board.GetPoint(24).Color == PieceColor.White);
+        Assert.That(board.GetPoint(24).Count, Is.EqualTo(1));
+        Assert.That(board.GetPoint(24).Color, Is.EqualTo(PieceColor.White));
 
-        Assert.IsTrue(board.GetPoint(23).Count == 2);
-        Assert.IsTrue(board.GetPoint(23).Color == PieceColor.Black);
+        Assert.That(board.GetPoint(23).Count, Is.EqualTo(2));
+        Assert.That(board.GetPoint(23).Color, Is.EqualTo(PieceColor.Black));
     }
 
     [Test]
@@ -65,12 +65,54 @@ public class Tests
         await board.AddPiece(PieceColor.White, 2);
         bool result = await board.MovePiece(1, 1);
 
-        Assert.IsFalse(result);
+        Assert.That(result, Is.EqualTo(false));
 
-        Assert.IsTrue(board.GetPoint(1).Count == 1);
-        Assert.IsTrue(board.GetPoint(1).Color == PieceColor.Black);
+        Assert.That(board.GetPoint(1).Count, Is.EqualTo(1));
+        Assert.That(board.GetPoint(1).Color, Is.EqualTo(PieceColor.Black));
 
-        Assert.IsTrue(board.GetPoint(2).Count == 2);
-        Assert.IsTrue(board.GetPoint(2).Color == PieceColor.White);
+        Assert.That(board.GetPoint(2).Count, Is.EqualTo(2));
+        Assert.That(board.GetPoint(2).Color, Is.EqualTo(PieceColor.White));
+    }
+
+    [Test]
+    public async Task Move_White_Piece_One_Point_Takes_Black_Piece()
+    {
+        BackgammonBoard board = new();
+
+        await board.AddPiece(PieceColor.White, 24);
+        await board.AddPiece(PieceColor.Black, 23);
+        bool result = await board.MovePiece(24, 1);
+
+        Assert.That(result, Is.EqualTo(true));
+
+        Assert.That(board.GetPoint(24).Count, Is.EqualTo(0));
+        Assert.That(board.GetPoint(24).Color, Is.EqualTo(PieceColor.None));
+
+        Assert.That(board.GetPoint(23).Count, Is.EqualTo(1));
+        Assert.That(board.GetPoint(23).Color, Is.EqualTo(PieceColor.White));
+
+        Assert.That(board.GetPoint(0).Count, Is.EqualTo(1));
+        Assert.That(board.GetPoint(0).Color, Is.EqualTo(PieceColor.Black));
+    }
+
+    [Test]
+    public async Task Move_Black_Piece_One_Point_Takes_White_Piece()
+    {
+        BackgammonBoard board = new();
+
+        await board.AddPiece(PieceColor.Black, 1);
+        await board.AddPiece(PieceColor.White, 2);
+        bool result = await board.MovePiece(1, 1);
+
+        Assert.That(result, Is.EqualTo(true));
+
+        Assert.That(board.GetPoint(1).Count, Is.EqualTo(0));
+        Assert.That(board.GetPoint(1).Color, Is.EqualTo(PieceColor.None));
+
+        Assert.That(board.GetPoint(2).Count, Is.EqualTo(1));
+        Assert.That(board.GetPoint(2).Color, Is.EqualTo(PieceColor.Black));
+
+        Assert.That(board.GetPoint(25).Count, Is.EqualTo(1));
+        Assert.That(board.GetPoint(25).Color, Is.EqualTo(PieceColor.White));
     }
 }

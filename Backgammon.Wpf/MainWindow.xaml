@@ -9,32 +9,33 @@
     <Viewbox Stretch="Uniform" Width="1920" Height="1080">
         <Canvas Width="1920" Height="1080">
             <Image Source="Board.png" Stretch="None" Canvas.Left="0" Canvas.Top="0" />
-            <local:BackgammonPointControl Canvas.Left="83" Canvas.Top="60" DataContext="{Binding Points[13]}"/>
-            <local:BackgammonPointControl Canvas.Left="112" Canvas.Top="60" DataContext="{Binding Points[14]}"/>
-            <local:BackgammonPointControl Canvas.Left="141" Canvas.Top="60" DataContext="{Binding Points[15]}"/>
-            <local:BackgammonPointControl Canvas.Left="170" Canvas.Top="60" DataContext="{Binding Points[16]}"/>
-            <local:BackgammonPointControl Canvas.Left="199" Canvas.Top="60" DataContext="{Binding Points[17]}"/>
-            <local:BackgammonPointControl Canvas.Left="228" Canvas.Top="60" DataContext="{Binding Points[18]}"/>
-            <local:BackgammonPointControl Canvas.Left="353" Canvas.Top="60" DataContext="{Binding Points[19]}"/>
-            <local:BackgammonPointControl Canvas.Left="382" Canvas.Top="60" DataContext="{Binding Points[20]}"/>
-            <local:BackgammonPointControl Canvas.Left="411" Canvas.Top="60" DataContext="{Binding Points[21]}"/>
-            <local:BackgammonPointControl Canvas.Left="440" Canvas.Top="60" DataContext="{Binding Points[22]}"/>
-            <local:BackgammonPointControl Canvas.Left="469" Canvas.Top="60" DataContext="{Binding Points[23]}"/>
-            <local:BackgammonPointControl Canvas.Left="498" Canvas.Top="60" DataContext="{Binding Points[24]}"/>
+            <local:BackgammonPointControl Canvas.Left="83" Canvas.Top="60" DataContext="{Binding Points[14]}"/>
+            <local:BackgammonPointControl Canvas.Left="112" Canvas.Top="60" DataContext="{Binding Points[15]}"/>
+            <local:BackgammonPointControl Canvas.Left="141" Canvas.Top="60" DataContext="{Binding Points[16]}"/>
+            <local:BackgammonPointControl Canvas.Left="170" Canvas.Top="60" DataContext="{Binding Points[17]}"/>
+            <local:BackgammonPointControl Canvas.Left="199" Canvas.Top="60" DataContext="{Binding Points[18]}"/>
+            <local:BackgammonPointControl Canvas.Left="228" Canvas.Top="60" DataContext="{Binding Points[19]}"/>
+            <local:BackgammonPointControl Canvas.Left="353" Canvas.Top="60" DataContext="{Binding Points[20]}"/>
+            <local:BackgammonPointControl Canvas.Left="382" Canvas.Top="60" DataContext="{Binding Points[21]}"/>
+            <local:BackgammonPointControl Canvas.Left="411" Canvas.Top="60" DataContext="{Binding Points[22]}"/>
+            <local:BackgammonPointControl Canvas.Left="440" Canvas.Top="60" DataContext="{Binding Points[23]}"/>
+            <local:BackgammonPointControl Canvas.Left="469" Canvas.Top="60" DataContext="{Binding Points[24]}"/>
+            <local:BackgammonPointControl Canvas.Left="498" Canvas.Top="60" DataContext="{Binding Points[25]}"/>
 
-            <local:BackgammonPointControl Canvas.Left="498" Canvas.Top="284" DataContext="{Binding Points[12]}"/>
-            <local:BackgammonPointControl Canvas.Left="469" Canvas.Top="284" DataContext="{Binding Points[11]}"/>
-            <local:BackgammonPointControl Canvas.Left="440" Canvas.Top="284" DataContext="{Binding Points[10]}"/>
-            <local:BackgammonPointControl Canvas.Left="411" Canvas.Top="284" DataContext="{Binding Points[9]}"/>
-            <local:BackgammonPointControl Canvas.Left="382" Canvas.Top="284" DataContext="{Binding Points[8]}"/>
-            <local:BackgammonPointControl Canvas.Left="353" Canvas.Top="284" DataContext="{Binding Points[7]}"/>
-            <local:BackgammonPointControl Canvas.Left="228" Canvas.Top="284" DataContext="{Binding Points[6]}"/>
-            <local:BackgammonPointControl Canvas.Left="199" Canvas.Top="284" DataContext="{Binding Points[5]}"/>
-            <local:BackgammonPointControl Canvas.Left="170" Canvas.Top="284" DataContext="{Binding Points[4]}"/>
-            <local:BackgammonPointControl Canvas.Left="141" Canvas.Top="284" DataContext="{Binding Points[3]}"/>
-            <local:BackgammonPointControl Canvas.Left="112" Canvas.Top="284" DataContext="{Binding Points[2]}"/>
-            <local:BackgammonPointControl Canvas.Left="88" Canvas.Top="284" DataContext="{Binding Points[1]}"/>
+            <local:BackgammonPointBottomControl Canvas.Left="498" Canvas.Top="154" DataContext="{Binding Points[2]}"/>
+            <local:BackgammonPointBottomControl Canvas.Left="469" Canvas.Top="154" DataContext="{Binding Points[3]}"/>
+            <local:BackgammonPointBottomControl Canvas.Left="440" Canvas.Top="154" DataContext="{Binding Points[4]}"/>
+            <local:BackgammonPointBottomControl Canvas.Left="411" Canvas.Top="154" DataContext="{Binding Points[5]}"/>
+            <local:BackgammonPointBottomControl Canvas.Left="382" Canvas.Top="154" DataContext="{Binding Points[6]}"/>
+            <local:BackgammonPointBottomControl Canvas.Left="353" Canvas.Top="154" DataContext="{Binding Points[7]}"/>
+            <local:BackgammonPointBottomControl Canvas.Left="228" Canvas.Top="154" DataContext="{Binding Points[8]}"/>
+            <local:BackgammonPointBottomControl Canvas.Left="199" Canvas.Top="154" DataContext="{Binding Points[9]}"/>
+            <local:BackgammonPointBottomControl Canvas.Left="170" Canvas.Top="154" DataContext="{Binding Points[10]}"/>
+            <local:BackgammonPointBottomControl Canvas.Left="141" Canvas.Top="154" DataContext="{Binding Points[11]}"/>
+            <local:BackgammonPointBottomControl Canvas.Left="112" Canvas.Top="154" DataContext="{Binding Points[12]}"/>
+            <local:BackgammonPointBottomControl Canvas.Left="88" Canvas.Top="154" DataContext="{Binding Points[13]}"/>
             <Button Content="Take Turn" Click="Button_Click"/>
+            <Button Content="Play" Click="Play_Click"/>
         </Canvas>
     </Viewbox>
 </Window>

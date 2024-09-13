@@ -1,4 +1,6 @@
-﻿namespace Backgammon;
+﻿using System.Drawing;
+
+namespace Backgammon;
 
 public class BackgammonBoard
 {
@@ -76,6 +78,12 @@ public class BackgammonBoard
 
     public async Task CreateGameBoard()
     {
+        for (int n = -1; n < 26; n++)
+        {
+            BackgammonPoint p = new BackgammonPoint { Point = n, Count = 0, Color = PieceColor.None };
+            _points.Add(p);
+        }
+
         await AddPiece(PieceColor.White, 24, 2);
         await AddPiece(PieceColor.Black, 19, 5);
         await AddPiece(PieceColor.Black, 17, 3);

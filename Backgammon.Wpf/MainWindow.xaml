@@ -4,37 +4,37 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Backgammon.Wpf"
-        mc:Ignorable="d" Loaded="Window_Loaded"
-        Title="MainWindow" Height="450" Width="800">
-    <StackPanel Orientation="Vertical">
-        <StackPanel Orientation="Horizontal">
-            <local:BackgammonPointControl DataContext="{Binding Points[13]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[14]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[15]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[16]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[17]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[18]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[19]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[20]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[21]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[22]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[23]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[24]}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <local:BackgammonPointControl DataContext="{Binding Points[12]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[11]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[10]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[9]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[8]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[7]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[6]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[5]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[4]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[3]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[2]}"/>
-            <local:BackgammonPointControl DataContext="{Binding Points[1]}"/>
-        </StackPanel>
-        <Button Content="Take Turn" Click="Button_Click"/>
-    </StackPanel>
+        mc:Ignorable="d" Loaded="Window_Loaded" Background="Black" WindowStyle="SingleBorderWindow"
+        Title="Backgammon" Height="395" Width="615">
+    <Viewbox Stretch="Uniform" Width="1920" Height="1080">
+        <Canvas Width="1920" Height="1080">
+            <Image Source="Board.png" Stretch="None" Canvas.Left="0" Canvas.Top="0" />
+            <local:BackgammonPointControl Canvas.Left="83" Canvas.Top="60" DataContext="{Binding Points[13]}"/>
+            <local:BackgammonPointControl Canvas.Left="112" Canvas.Top="60" DataContext="{Binding Points[14]}"/>
+            <local:BackgammonPointControl Canvas.Left="141" Canvas.Top="60" DataContext="{Binding Points[15]}"/>
+            <local:BackgammonPointControl Canvas.Left="170" Canvas.Top="60" DataContext="{Binding Points[16]}"/>
+            <local:BackgammonPointControl Canvas.Left="199" Canvas.Top="60" DataContext="{Binding Points[17]}"/>
+            <local:BackgammonPointControl Canvas.Left="228" Canvas.Top="60" DataContext="{Binding Points[18]}"/>
+            <local:BackgammonPointControl Canvas.Left="353" Canvas.Top="60" DataContext="{Binding Points[19]}"/>
+            <local:BackgammonPointControl Canvas.Left="382" Canvas.Top="60" DataContext="{Binding Points[20]}"/>
+            <local:BackgammonPointControl Canvas.Left="411" Canvas.Top="60" DataContext="{Binding Points[21]}"/>
+            <local:BackgammonPointControl Canvas.Left="440" Canvas.Top="60" DataContext="{Binding Points[22]}"/>
+            <local:BackgammonPointControl Canvas.Left="469" Canvas.Top="60" DataContext="{Binding Points[23]}"/>
+            <local:BackgammonPointControl Canvas.Left="498" Canvas.Top="60" DataContext="{Binding Points[24]}"/>
+
+            <local:BackgammonPointControl Canvas.Left="498" Canvas.Top="284" DataContext="{Binding Points[12]}"/>
+            <local:BackgammonPointControl Canvas.Left="469" Canvas.Top="284" DataContext="{Binding Points[11]}"/>
+            <local:BackgammonPointControl Canvas.Left="440" Canvas.Top="284" DataContext="{Binding Points[10]}"/>
+            <local:BackgammonPointControl Canvas.Left="411" Canvas.Top="284" DataContext="{Binding Points[9]}"/>
+            <local:BackgammonPointControl Canvas.Left="382" Canvas.Top="284" DataContext="{Binding Points[8]}"/>
+            <local:BackgammonPointControl Canvas.Left="353" Canvas.Top="284" DataContext="{Binding Points[7]}"/>
+            <local:BackgammonPointControl Canvas.Left="228" Canvas.Top="284" DataContext="{Binding Points[6]}"/>
+            <local:BackgammonPointControl Canvas.Left="199" Canvas.Top="284" DataContext="{Binding Points[5]}"/>
+            <local:BackgammonPointControl Canvas.Left="170" Canvas.Top="284" DataContext="{Binding Points[4]}"/>
+            <local:BackgammonPointControl Canvas.Left="141" Canvas.Top="284" DataContext="{Binding Points[3]}"/>
+            <local:BackgammonPointControl Canvas.Left="112" Canvas.Top="284" DataContext="{Binding Points[2]}"/>
+            <local:BackgammonPointControl Canvas.Left="88" Canvas.Top="284" DataContext="{Binding Points[1]}"/>
+            <Button Content="Take Turn" Click="Button_Click"/>
+        </Canvas>
+    </Viewbox>
 </Window>

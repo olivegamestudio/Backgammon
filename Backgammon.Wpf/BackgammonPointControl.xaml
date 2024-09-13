@@ -7,8 +7,33 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Orientation="Vertical">
-        <Label Content="{Binding Id}" />
-        <Label Content="{Binding Color}" />
-        <Label Content="{Binding Count}" />
+        <ContentControl>
+            <ContentControl.Resources>
+                <DataTemplate x:Key="BlackPiece">
+                    <Image Source="black.png" Width="32" Height="32" Stretch="Uniform"/>
+                </DataTemplate>
+                <DataTemplate x:Key="WhitePiece">
+                    <Image Source="white.png" Width="32" Height="32" Stretch="Uniform"/>
+                </DataTemplate>
+                <DataTemplate x:Key="NoPiece">
+                </DataTemplate>
+            </ContentControl.Resources>
+            <ContentPresenter ContentTemplate="{StaticResource BlackPiece}"/>
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Color}" Value="Black">
+                            <Setter Property="ContentTemplate" Value="{StaticResource BlackPiece}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Color}" Value="White">
+                            <Setter Property="ContentTemplate" Value="{StaticResource WhitePiece}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Color}" Value="None">
+                            <Setter Property="ContentTemplate" Value="{StaticResource NoPiece}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
     </StackPanel>
 </UserControl>

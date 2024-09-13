@@ -9,11 +9,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="black.png" />
+    <None Remove="Board.png" />
+    <None Remove="white.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.*" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Backgammon\Backgammon.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="black.png" />
+    <Resource Include="Board.png" />
+    <Resource Include="white.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="**\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
